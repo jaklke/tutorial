@@ -1,6 +1,20 @@
 
 ---
 const pageTitle = "About Us";
+
+const identity = {
+  firstName: "Sarah",
+  country: "Canada",
+  occupation: "Technical Writer",
+  hobbies: ["photography", "birdwatching", "baseball"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
+
+const happy = true;
+const finished = false;
+const goal = 3;
+
 ---
 
 
@@ -22,5 +36,22 @@ const pageTitle = "About Us";
 <p>We believe that great content is more than just words on a page — it's a powerful tool for storytelling, learning, and building communities. Whether you're here to explore fresh perspectives, dive into in-depth guides, or simply find something worth sharing, you've come to the right place.</p>
 <p>Our team of creators, writers, and editors is passionate about delivering value through every article, video, and resource we publish. We cover a wide range of topics designed to spark curiosity, foster growth, and keep you coming back for more.</p>
 <p>Thank you for being part of our journey. Let's create, discover, and grow — together.</p>
-	</body>
+<p>Here are a few facts about me:</p>
+<ul>
+  <li>My name is {identity.firstName}.</li>
+  <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
+  {identity.hobbies.length >= 2 &&
+    <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
+  }
+</ul>
+<p>My skills are:</p>
+<ul>
+  {skills.map((skill) => <li>{skill}</li>)}
+</ul>	
+{happy && <p>I am happy to be learning Astro!</p>}
+
+{finished && <p>I finished this tutorial!</p>}
+
+{goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
+</body>
 </html>
